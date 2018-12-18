@@ -109,6 +109,7 @@
 				FBC3CBE521C87CDF00266D7B /* Coordinator.swift */,
 				FBC3CBE721C87CE600266D7B /* SearchFoodItemsCoordinator.swift */,
 				FBC3CBE221C878C100266D7B /* Models */,
+				FBC3CBEB21C8824000266D7B /* ViewModels */,
 				FBC3CBE921C87E2500266D7B /* ViewControllers */,
 				FBC3CBEA21C87E5500266D7B /* Views */,
 				FBC3CBBB21C878AD00266D7B /* Assets.xcassets */,
@@ -159,6 +160,13 @@
 				FBC3CBB521C878AC00266D7B /* Main.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FBC3CBEB21C8824000266D7B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

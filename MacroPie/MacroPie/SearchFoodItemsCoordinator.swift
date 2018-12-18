@@ -1,6 +1,6 @@
 //
 //  SearchFoodItemsCoordinator.swift
-//  cc-social
+//  MacroPie
 //
 //  Created by Basel Abdelaziz on 11/29/18.
 //  Copyright © 2018 MassIdeation. All rights reserved.
