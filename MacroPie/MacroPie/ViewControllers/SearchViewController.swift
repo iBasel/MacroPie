@@ -10,10 +10,11 @@ import UIKit
 
 class SearchViewController: UITableViewController {
 
-	let apiKey = "W2ceA0Nn2t5Sy6nDsGVSc15SaarVCkEyqpihsLRU"
 	let searchController = UISearchController(searchResultsController: nil)
 	
-	var items: FoodItemsSearchResult? {
+	var searchViewModel = SearchViewModel()
+	
+	var items: [FoodItemViewModel]? {
 		didSet {
 			DispatchQueue.main.async {				
 				self.tableView.reloadData()
@@ -47,43 +48,22 @@ class SearchViewController: UITableViewController {
 	}
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return items?.list.foodItems.count ?? 0
+		return items?.count ?? 0
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "FoodItemCell", for: indexPath)
-		cell.textLabel?.text = items?.list.foodItems[indexPath.row].name ?? ""
+		cell.textLabel?.text = items?[indexPath.row].name ?? ""
 		return cell
-	}
-	
-	func getResults(for searchText: String) {
-		guard let searchText = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return}
-		
-		let url = "https://api.nal.usda.gov/ndb/search/?format=json&q=\(searchText)&sort=n&max=25&offset=0&api_key=\(apiKey)"
-		
-		URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
-			let result = String(data: data!, encoding: .utf8)
-			if let result = result {
-				if let resultData = result.data(using: .utf8) {
-					do {
-						if let items = try JSONDecoder().decode(FoodItemsSearchResult?.self, from: resultData) {
-							self.items = items
-						}
-					} catch {
-						print(error)
-					}
-				}
-			}
-			}.resume()
-	}
-
+	}	
 }
 
 extension SearchViewController: UISearchResultsUpdating {
 	func updateSearchResults(for searchController: UISearchController) {
-		searchController.searchResultsController?.view.isHidden = false
-		if let text = searchController.searchBar.text, text.count > 3 {
-			getResults(for: text)
+		if let text = searchController.searchBar.text {			
+			self.searchViewModel.searchItems(for: text) { [weak self] items in
+				self?.items = items
+			}
 		}
 	}
 }

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB8C0B1321C93CDA006A2210 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1221C93CDA006A2210 /* SearchListViewModel.swift */; };
+		FB8C0B1621C9DAE4006A2210 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1521C9DAE4006A2210 /* Result.swift */; };
+		FB8C0B1821C9DAF8006A2210 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1721C9DAF8006A2210 /* Endpoint.swift */; };
+		FB8C0B1A21C9DBCE006A2210 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1921C9DBCE006A2210 /* APIError.swift */; };
+		FB8C0B1C21C9DC2B006A2210 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1B21C9DC2B006A2210 /* APIClient.swift */; };
+		FB8C0B1E21C9E66E006A2210 /* SearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1D21C9E66E006A2210 /* SearchClient.swift */; };
 		FBC3CBB221C878AC00266D7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBB121C878AC00266D7B /* AppDelegate.swift */; };
 		FBC3CBB421C878AC00266D7B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBB321C878AC00266D7B /* SearchViewController.swift */; };
 		FBC3CBB721C878AC00266D7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC3CBB521C878AC00266D7B /* Main.storyboard */; };
@@ -38,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB8C0B1221C93CDA006A2210 /* SearchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
+		FB8C0B1521C9DAE4006A2210 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		FB8C0B1721C9DAF8006A2210 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		FB8C0B1921C9DBCE006A2210 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		FB8C0B1B21C9DC2B006A2210 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		FB8C0B1D21C9E66E006A2210 /* SearchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClient.swift; sourceTree = "<group>"; };
 		FBC3CBAE21C878AB00266D7B /* MacroPie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroPie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC3CBB121C878AC00266D7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBC3CBB321C878AC00266D7B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +94,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB8C0B1421C9DAD5006A2210 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FB8C0B1521C9DAE4006A2210 /* Result.swift */,
+				FB8C0B1721C9DAF8006A2210 /* Endpoint.swift */,
+				FB8C0B1921C9DBCE006A2210 /* APIError.swift */,
+				FB8C0B1B21C9DC2B006A2210 /* APIClient.swift */,
+				FB8C0B1D21C9E66E006A2210 /* SearchClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		FBC3CBA521C878AB00266D7B = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +129,7 @@
 		FBC3CBB021C878AC00266D7B /* MacroPie */ = {
 			isa = PBXGroup;
 			children = (
+				FB8C0B1421C9DAD5006A2210 /* Networking */,
 				FBC3CBB121C878AC00266D7B /* AppDelegate.swift */,
 				FBC3CBE521C87CDF00266D7B /* Coordinator.swift */,
 				FBC3CBE721C87CE600266D7B /* SearchFoodItemsCoordinator.swift */,
@@ -165,6 +190,7 @@
 		FBC3CBEB21C8824000266D7B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FB8C0B1221C93CDA006A2210 /* SearchListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -301,10 +327,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBC3CBE821C87CE600266D7B /* SearchFoodItemsCoordinator.swift in Sources */,
+				FB8C0B1821C9DAF8006A2210 /* Endpoint.swift in Sources */,
+				FB8C0B1E21C9E66E006A2210 /* SearchClient.swift in Sources */,
+				FB8C0B1321C93CDA006A2210 /* SearchListViewModel.swift in Sources */,
+				FB8C0B1A21C9DBCE006A2210 /* APIError.swift in Sources */,
 				FBC3CBB421C878AC00266D7B /* SearchViewController.swift in Sources */,
+				FB8C0B1C21C9DC2B006A2210 /* APIClient.swift in Sources */,
 				FBC3CBE421C878E900266D7B /* FoodItemsSearchResult.swift in Sources */,
 				FBC3CBE621C87CDF00266D7B /* Coordinator.swift in Sources */,
 				FBC3CBB221C878AC00266D7B /* AppDelegate.swift in Sources */,
+				FB8C0B1621C9DAE4006A2210 /* Result.swift in Sources */,
 				FBC3CBBA21C878AC00266D7B /* MacroPie.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,7 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7L3M3UQG6N;
+				DEVELOPMENT_TEAM = HG64NS3XL8;
 				INFOPLIST_FILE = MacroPie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -499,7 +531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7L3M3UQG6N;
+				DEVELOPMENT_TEAM = HG64NS3XL8;
 				INFOPLIST_FILE = MacroPie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

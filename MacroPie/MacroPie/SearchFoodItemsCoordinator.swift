@@ -21,8 +21,7 @@ class SearchFoodItemsCoordinator: Coordinator {
 	}
 	
 	func start() {
-		guard let searchViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else { return }
-				
+		guard let searchViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else { return }				
 		self.navigationViewController.pushViewController(searchViewController, animated: true)
 	}
 }
