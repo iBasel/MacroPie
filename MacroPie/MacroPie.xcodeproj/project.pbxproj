@@ -13,6 +13,11 @@
 		FB8C0B1A21C9DBCE006A2210 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1921C9DBCE006A2210 /* APIError.swift */; };
 		FB8C0B1C21C9DC2B006A2210 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1B21C9DC2B006A2210 /* APIClient.swift */; };
 		FB8C0B1E21C9E66E006A2210 /* SearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1D21C9E66E006A2210 /* SearchClient.swift */; };
+		FB8C0B2021CAA05E006A2210 /* FoodReportClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1F21CAA05E006A2210 /* FoodReportClient.swift */; };
+		FB8C0B2221CAA147006A2210 /* FoodItemReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B2121CAA147006A2210 /* FoodItemReportViewModel.swift */; };
+		FB8C0B2421CAA9D5006A2210 /* FoodItemReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B2321CAA9D5006A2210 /* FoodItemReport.swift */; };
+		FB8C0B2621CABC16006A2210 /* FeedReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B2521CABC16006A2210 /* FeedReportViewController.swift */; };
+		FB8C0B2821CBE8FA006A2210 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B2721CBE8FA006A2210 /* PieChart.swift */; };
 		FBC3CBB221C878AC00266D7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBB121C878AC00266D7B /* AppDelegate.swift */; };
 		FBC3CBB421C878AC00266D7B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBB321C878AC00266D7B /* SearchViewController.swift */; };
 		FBC3CBB721C878AC00266D7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC3CBB521C878AC00266D7B /* Main.storyboard */; };
@@ -50,6 +55,11 @@
 		FB8C0B1921C9DBCE006A2210 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		FB8C0B1B21C9DC2B006A2210 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FB8C0B1D21C9E66E006A2210 /* SearchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClient.swift; sourceTree = "<group>"; };
+		FB8C0B1F21CAA05E006A2210 /* FoodReportClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodReportClient.swift; sourceTree = "<group>"; };
+		FB8C0B2121CAA147006A2210 /* FoodItemReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemReportViewModel.swift; sourceTree = "<group>"; };
+		FB8C0B2321CAA9D5006A2210 /* FoodItemReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemReport.swift; sourceTree = "<group>"; };
+		FB8C0B2521CABC16006A2210 /* FeedReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedReportViewController.swift; sourceTree = "<group>"; };
+		FB8C0B2721CBE8FA006A2210 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		FBC3CBAE21C878AB00266D7B /* MacroPie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroPie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC3CBB121C878AC00266D7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBC3CBB321C878AC00266D7B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +112,7 @@
 				FB8C0B1921C9DBCE006A2210 /* APIError.swift */,
 				FB8C0B1B21C9DC2B006A2210 /* APIClient.swift */,
 				FB8C0B1D21C9E66E006A2210 /* SearchClient.swift */,
+				FB8C0B1F21CAA05E006A2210 /* FoodReportClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -129,10 +140,10 @@
 		FBC3CBB021C878AC00266D7B /* MacroPie */ = {
 			isa = PBXGroup;
 			children = (
-				FB8C0B1421C9DAD5006A2210 /* Networking */,
 				FBC3CBB121C878AC00266D7B /* AppDelegate.swift */,
 				FBC3CBE521C87CDF00266D7B /* Coordinator.swift */,
 				FBC3CBE721C87CE600266D7B /* SearchFoodItemsCoordinator.swift */,
+				FB8C0B1421C9DAD5006A2210 /* Networking */,
 				FBC3CBE221C878C100266D7B /* Models */,
 				FBC3CBEB21C8824000266D7B /* ViewModels */,
 				FBC3CBE921C87E2500266D7B /* ViewControllers */,
@@ -167,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				FBC3CBE321C878E900266D7B /* FoodItemsSearchResult.swift */,
+				FB8C0B2321CAA9D5006A2210 /* FoodItemReport.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				FBC3CBB321C878AC00266D7B /* SearchViewController.swift */,
+				FB8C0B2521CABC16006A2210 /* FeedReportViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -182,6 +195,7 @@
 		FBC3CBEA21C87E5500266D7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FB8C0B2721CBE8FA006A2210 /* PieChart.swift */,
 				FBC3CBB521C878AC00266D7B /* Main.storyboard */,
 			);
 			path = Views;
@@ -191,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				FB8C0B1221C93CDA006A2210 /* SearchListViewModel.swift */,
+				FB8C0B2121CAA147006A2210 /* FoodItemReportViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -326,13 +341,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB8C0B2021CAA05E006A2210 /* FoodReportClient.swift in Sources */,
+				FB8C0B2821CBE8FA006A2210 /* PieChart.swift in Sources */,
 				FBC3CBE821C87CE600266D7B /* SearchFoodItemsCoordinator.swift in Sources */,
 				FB8C0B1821C9DAF8006A2210 /* Endpoint.swift in Sources */,
 				FB8C0B1E21C9E66E006A2210 /* SearchClient.swift in Sources */,
 				FB8C0B1321C93CDA006A2210 /* SearchListViewModel.swift in Sources */,
+				FB8C0B2221CAA147006A2210 /* FoodItemReportViewModel.swift in Sources */,
 				FB8C0B1A21C9DBCE006A2210 /* APIError.swift in Sources */,
 				FBC3CBB421C878AC00266D7B /* SearchViewController.swift in Sources */,
+				FB8C0B2621CABC16006A2210 /* FeedReportViewController.swift in Sources */,
 				FB8C0B1C21C9DC2B006A2210 /* APIClient.swift in Sources */,
+				FB8C0B2421CAA9D5006A2210 /* FoodItemReport.swift in Sources */,
 				FBC3CBE421C878E900266D7B /* FoodItemsSearchResult.swift in Sources */,
 				FBC3CBE621C87CDF00266D7B /* Coordinator.swift in Sources */,
 				FBC3CBB221C878AC00266D7B /* AppDelegate.swift in Sources */,

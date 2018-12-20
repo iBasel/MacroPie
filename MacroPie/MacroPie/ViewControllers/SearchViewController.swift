@@ -10,17 +10,11 @@ import UIKit
 
 class SearchViewController: UITableViewController {
 
+	var didSelectFoodItem: ((String) -> Void)?
+	
 	let searchController = UISearchController(searchResultsController: nil)
 	
 	var searchViewModel = SearchViewModel()
-	
-	var items: [FoodItemViewModel]? {
-		didSet {
-			DispatchQueue.main.async {				
-				self.tableView.reloadData()
-			}
-		}
-	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -31,6 +25,12 @@ class SearchViewController: UITableViewController {
 		searchController.searchBar.placeholder = "Search Food Items"
 		navigationItem.searchController = searchController
 		definesPresentationContext = true
+		
+		searchViewModel.didUpdateItems = {
+			DispatchQueue.main.async {
+				self.tableView.reloadData()
+			}
+		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -46,24 +46,25 @@ class SearchViewController: UITableViewController {
 			navigationItem.hidesSearchBarWhenScrolling = true
 		}
 	}
-
+	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return items?.count ?? 0
+		return searchViewModel.items?.count ?? 0
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "FoodItemCell", for: indexPath)
-		cell.textLabel?.text = items?[indexPath.row].name ?? ""
+		cell.textLabel?.text = searchViewModel.items?[indexPath.row].name ?? ""
 		return cell
-	}	
+	}
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		guard let item = self.searchViewModel.items?[indexPath.row], let itemDbNo = item.ndbno else { return }
+		didSelectFoodItem?(itemDbNo)
+	}
 }
 
 extension SearchViewController: UISearchResultsUpdating {
 	func updateSearchResults(for searchController: UISearchController) {
-		if let text = searchController.searchBar.text {			
-			self.searchViewModel.searchItems(for: text) { [weak self] items in
-				self?.items = items
-			}
-		}
+		searchViewModel.didUpdateSearchText(with: searchController.searchBar.text)
 	}
 }

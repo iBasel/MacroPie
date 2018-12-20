@@ -11,22 +11,24 @@ import Foundation
 protocol Endpoint {
 	var base: String { get }
 	var path: String { get }
+	var apiKey: String { get }
+	func getQueryItems(appending items: [URLQueryItem]) -> [URLQueryItem]
 }
 
 extension Endpoint {
-	var apiKey: String {
-		return "api_key=W2ceA0Nn2t5Sy6nDsGVSc15SaarVCkEyqpihsLRU&format=json&sort=n&max=25&offset=0"
-	}
 	
-	func urlComponents(appending sequence: [URLQueryItem]) -> URLComponents {
+	func urlComponents(appending sequence: [URLQueryItem]?) -> URLComponents {
 		var components = URLComponents(string: base)!
 		components.path = path
-		components.query = apiKey
-		components.queryItems?.append(contentsOf: sequence)
+		
+		if let sequence = sequence {
+			components.queryItems?.append(contentsOf: sequence)
+		}
+		
 		return components
 	}	
 	
-	func request(appending sequence: [URLQueryItem]) -> URLRequest {
+	func getRequest(appending sequence: [URLQueryItem]?) -> URLRequest {
 		let url = urlComponents(appending: sequence).url!
 		return URLRequest(url: url)
 	}

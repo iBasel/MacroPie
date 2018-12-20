@@ -19,8 +19,8 @@ class SearchClient: APIClient {
 		self.init(configuration: .default)
 	}
 	
-	func searchTerm(from model: SearchViewModel, for term: String, completion: @escaping (Result<FoodItemsSearchResult?, APIError>) -> Void) {				
-		fetch(with: model.request(appending: [URLQueryItem(name: "q", value: term)]), decode: { (json) -> FoodItemsSearchResult? in
+	func searchTerm(from model: SearchViewModel, for term: String, completion: @escaping (Result<FoodItemsSearchResult?, APIError>) -> Void) {
+		fetch(with: model.getRequest(appending: [URLQueryItem(name: "q", value: term)]), decode: { (json) -> FoodItemsSearchResult? in
 			guard let searchResult = json as? FoodItemsSearchResult else { return  nil }
 			return searchResult
 		}, completion: completion)
