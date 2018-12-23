@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F0F2A674DF21F83E0762896E /* libPods-MacroPie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C64486A4CA3D515422889FA /* libPods-MacroPie.a */; };
 		FB8C0B1321C93CDA006A2210 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1221C93CDA006A2210 /* SearchListViewModel.swift */; };
 		FB8C0B1621C9DAE4006A2210 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1521C9DAE4006A2210 /* Result.swift */; };
 		FB8C0B1821C9DAF8006A2210 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1721C9DAF8006A2210 /* Endpoint.swift */; };
@@ -17,10 +18,9 @@
 		FB8C0B2221CAA147006A2210 /* FoodItemReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B2121CAA147006A2210 /* FoodItemReportViewModel.swift */; };
 		FB8C0B2421CAA9D5006A2210 /* FoodItemReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B2321CAA9D5006A2210 /* FoodItemReport.swift */; };
 		FB8C0B2621CABC16006A2210 /* FeedReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B2521CABC16006A2210 /* FeedReportViewController.swift */; };
-		FB8C0B2821CBE8FA006A2210 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B2721CBE8FA006A2210 /* PieChart.swift */; };
 		FBC3CBB221C878AC00266D7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBB121C878AC00266D7B /* AppDelegate.swift */; };
 		FBC3CBB421C878AC00266D7B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBB321C878AC00266D7B /* SearchViewController.swift */; };
-		FBC3CBB721C878AC00266D7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC3CBB521C878AC00266D7B /* Main.storyboard */; };
+		FBC3CBB721C878AC00266D7B /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC3CBB521C878AC00266D7B /* Search.storyboard */; };
 		FBC3CBBA21C878AC00266D7B /* MacroPie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBB821C878AC00266D7B /* MacroPie.xcdatamodeld */; };
 		FBC3CBBC21C878AD00266D7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBC3CBBB21C878AD00266D7B /* Assets.xcassets */; };
 		FBC3CBBF21C878AD00266D7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC3CBBD21C878AD00266D7B /* LaunchScreen.storyboard */; };
@@ -49,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		316BB66C2F15BB5C2C1BF087 /* Pods-MacroPie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacroPie.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacroPie/Pods-MacroPie.release.xcconfig"; sourceTree = "<group>"; };
+		5C64486A4CA3D515422889FA /* libPods-MacroPie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MacroPie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF0C749ABC65C2AF57041393 /* Pods-MacroPie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacroPie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MacroPie/Pods-MacroPie.debug.xcconfig"; sourceTree = "<group>"; };
 		FB8C0B1221C93CDA006A2210 /* SearchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
 		FB8C0B1521C9DAE4006A2210 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FB8C0B1721C9DAF8006A2210 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -59,11 +62,10 @@
 		FB8C0B2121CAA147006A2210 /* FoodItemReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemReportViewModel.swift; sourceTree = "<group>"; };
 		FB8C0B2321CAA9D5006A2210 /* FoodItemReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemReport.swift; sourceTree = "<group>"; };
 		FB8C0B2521CABC16006A2210 /* FeedReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedReportViewController.swift; sourceTree = "<group>"; };
-		FB8C0B2721CBE8FA006A2210 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		FBC3CBAE21C878AB00266D7B /* MacroPie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroPie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC3CBB121C878AC00266D7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBC3CBB321C878AC00266D7B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		FBC3CBB621C878AC00266D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FBC3CBB621C878AC00266D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		FBC3CBB921C878AC00266D7B /* MacroPie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MacroPie.xcdatamodel; sourceTree = "<group>"; };
 		FBC3CBBB21C878AD00266D7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBC3CBBE21C878AD00266D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0F2A674DF21F83E0762896E /* libPods-MacroPie.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +107,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27E19B2FC8A73EF04A673273 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EF0C749ABC65C2AF57041393 /* Pods-MacroPie.debug.xcconfig */,
+				316BB66C2F15BB5C2C1BF087 /* Pods-MacroPie.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5898527C015433ACFE24DCCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C64486A4CA3D515422889FA /* libPods-MacroPie.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FB8C0B1421C9DAD5006A2210 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +144,8 @@
 				FBC3CBC821C878AD00266D7B /* MacroPieTests */,
 				FBC3CBD321C878AE00266D7B /* MacroPieUITests */,
 				FBC3CBAF21C878AB00266D7B /* Products */,
+				27E19B2FC8A73EF04A673273 /* Pods */,
+				5898527C015433ACFE24DCCC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,8 +217,7 @@
 		FBC3CBEA21C87E5500266D7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FB8C0B2721CBE8FA006A2210 /* PieChart.swift */,
-				FBC3CBB521C878AC00266D7B /* Main.storyboard */,
+				FBC3CBB521C878AC00266D7B /* Search.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +238,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FBC3CBD921C878AE00266D7B /* Build configuration list for PBXNativeTarget "MacroPie" */;
 			buildPhases = (
+				0D1EFE097F0034AD807F236F /* [CP] Check Pods Manifest.lock */,
 				FBC3CBAA21C878AB00266D7B /* Sources */,
 				FBC3CBAB21C878AB00266D7B /* Frameworks */,
 				FBC3CBAC21C878AB00266D7B /* Resources */,
@@ -316,7 +338,7 @@
 			files = (
 				FBC3CBBF21C878AD00266D7B /* LaunchScreen.storyboard in Resources */,
 				FBC3CBBC21C878AD00266D7B /* Assets.xcassets in Resources */,
-				FBC3CBB721C878AC00266D7B /* Main.storyboard in Resources */,
+				FBC3CBB721C878AC00266D7B /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,13 +358,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D1EFE097F0034AD807F236F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MacroPie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FBC3CBAA21C878AB00266D7B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FB8C0B2021CAA05E006A2210 /* FoodReportClient.swift in Sources */,
-				FB8C0B2821CBE8FA006A2210 /* PieChart.swift in Sources */,
 				FBC3CBE821C87CE600266D7B /* SearchFoodItemsCoordinator.swift in Sources */,
 				FB8C0B1821C9DAF8006A2210 /* Endpoint.swift in Sources */,
 				FB8C0B1E21C9E66E006A2210 /* SearchClient.swift in Sources */,
@@ -393,12 +439,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FBC3CBB521C878AC00266D7B /* Main.storyboard */ = {
+		FBC3CBB521C878AC00266D7B /* Search.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FBC3CBB621C878AC00266D7B /* Base */,
 			);
-			name = Main.storyboard;
+			name = Search.storyboard;
 			sourceTree = "<group>";
 		};
 		FBC3CBBD21C878AD00266D7B /* LaunchScreen.storyboard */ = {
@@ -530,6 +576,7 @@
 		};
 		FBC3CBDA21C878AE00266D7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF0C749ABC65C2AF57041393 /* Pods-MacroPie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -548,6 +595,7 @@
 		};
 		FBC3CBDB21C878AE00266D7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 316BB66C2F15BB5C2C1BF087 /* Pods-MacroPie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -9,87 +9,7 @@
 import Foundation
 import UIKit
 
-
-class FoodReportViewModel {
-	var didGetFoodReport: ((_ energy: Float, _ protein: Float, _ carbs: Float, _ fat: Float) -> Void)?
-	var nutrients: [NutrientsViewModel]? {
-		didSet {
-			
-			print(nutrients?[0].measures[0].value ?? 0, nutrients?[0].measures[0].equivalentUnit ?? "")
-			nutrients?.forEach({ (nutrient) in
-				print(nutrient.name, nutrient.value)
-			})
-			
-			if let protein = nutrients?.filter({ return $0.nutrientId == NutrientIds.protein.rawValue }).first,
-				let carbs = nutrients?.filter({ return $0.nutrientId == NutrientIds.carbs.rawValue }).first,
-				let fat = nutrients?.filter({ return $0.nutrientId == NutrientIds.fat.rawValue }).first,
-				let energy = nutrients?.filter({ return $0.nutrientId == NutrientIds.energy.rawValue }).first {
-				let energyValue = Float(energy.value) ?? 0
-				let proteinValue = Float(protein.value) ?? 0
-				let carbsValue = Float(carbs.value) ?? 0
-				let fatValue = Float(fat.value) ?? 0
-				didGetFoodReport?(energyValue, proteinValue, carbsValue, fatValue)
-			}
-		}
-	}
-	
-	func getReport(for foodItem: String?) {
-		if let foodItem = foodItem {
-			self.getReport(for: foodItem) { (nutrients) in
-				self.nutrients = nutrients.filter({ (nutrient) -> Bool in
-					if nutrient.nutrientId == NutrientIds.protein.rawValue
-						|| nutrient.nutrientId == NutrientIds.fat.rawValue
-						|| nutrient.nutrientId == NutrientIds.carbs.rawValue
-						|| nutrient.nutrientId == NutrientIds.energy.rawValue
-					{
-						return true
-					} else {
-						return false
-					}
-				})
-			}
-		}
-	}
-}
-
-extension FoodReportViewModel: Endpoint {
-	
-	var base: String {
-		return "https://api.nal.usda.gov"
-	}
-	
-	var path: String {
-		return "/ndb/V2/reports"
-	}
-	
-	var apiKey: String {
-		return "api_key=W2ceA0Nn2t5Sy6nDsGVSc15SaarVCkEyqpihsLRU"
-	}
-	
-	func getQueryItems(appending items: [URLQueryItem]) -> [URLQueryItem] {
-		var queryItems = [URLQueryItem(name: "type", value: "b"),
-						  URLQueryItem(name: "format", value: "json")]
-		queryItems.append(contentsOf: items)
-		return queryItems
-	}
-	
-	func getReport(for foodItem: String?, completion: @escaping (([NutrientsViewModel]) -> Void)) {
-		guard let foodItem = foodItem else { return }
-		FoodReportClient().getReport(from: self, for: foodItem) { (result) in
-			switch result {
-			case .success(let reportResult):
-				guard let itemReport = reportResult else { return }
-				let report = itemReport.foods[0].food.nutrients.map { return  NutrientsViewModel(nutrients: $0) }
-				completion(report)
-			case .failure(let error):
-				print("the error \(error)")
-			}
-		}
-	}
-	
-}
-
-struct FoodItemReportsResultViewModel {
+private struct FoodItemReportsResultViewModel {
 	let foods: [FoodsViewModel]?
 	let count: Int?
 	let notfound: Int?
@@ -103,7 +23,7 @@ struct FoodItemReportsResultViewModel {
 	}
 }
 
-struct FoodsViewModel {
+private struct FoodsViewModel {
 	let food: FoodViewModel?
 	
 	init(foods: Foods) {
@@ -111,7 +31,7 @@ struct FoodsViewModel {
 	}
 }
 
-struct FoodViewModel {
+private struct FoodViewModel {
 	let nutrients: [NutrientsViewModel]?
 	
 	init(food: Food) {
@@ -153,4 +73,113 @@ struct MeasuresViewModel {
 		self.quantity = measures.quantity
 		self.value = measures.value
 	}
+}
+
+class FoodReportViewModel {
+	let foodReportClient = FoodReportClient()
+	
+	var didGetFoodReport: ((_ nutrients: [NutrientsViewModel]?, _ label: String) -> Void)?
+	var didGetEnergy: ((String) -> Void)?
+	var failedToGetReport: ((String) -> Void)?
+	private var macrosSet: Set = [NutrientIds.protein.rawValue, NutrientIds.carbs.rawValue, NutrientIds.fat.rawValue]
+	
+	private var nutrients: [NutrientsViewModel]? {
+		didSet {
+			nutrients?.forEach({ (nutrient) in
+				print(nutrient.name, nutrient.value, nutrient.measures.first!)
+			})
+			
+			var label = ""
+			
+			if let measure = nutrients?.first?.measures.first {
+				label = String(describing: "in \(measure.quantity) \(measure.label)")
+			}
+			
+			didGetFoodReport?(nutrients?.filter{ return (Double($0.value) ?? 0.0) > 0.0 }, label)
+		}
+	}
+	
+	private var energy: String? {
+		didSet {
+			if let energy = energy {
+				didGetEnergy?("Calories: \(energy)")
+			}
+		}
+	}
+	
+	private func getApproximateCalories() -> String{
+		var total = 0.0
+		self.nutrients?.forEach { nutrient in
+			switch nutrient.nutrientId {
+			case NutrientIds.protein.rawValue:
+				total += (Double(nutrient.value) ?? 0.0) * 4.0
+				print(total)
+			case NutrientIds.carbs.rawValue:
+				total += (Double(nutrient.value) ?? 0.0) * 4.0
+				print(total)
+			case NutrientIds.fat.rawValue:
+				total += (Double(nutrient.value) ?? 0.0) * 9.0
+				print(total)
+			default:
+				total += 0.0
+			}
+		}
+		return NSString(format: "%.2f", total) as String
+	}
+	
+	func getReport(for foodItem: String?) {
+		if let foodItem = foodItem {
+			self.getReport(for: foodItem) { (nutrients) in
+				self.nutrients = nutrients.filter{ return self.macrosSet.contains($0.nutrientId) }
+				let energy = nutrients.filter{ return $0.nutrientId == NutrientIds.energy.rawValue }.first
+				if let energy = energy {
+					self.energy = energy.value
+				} else {
+					self.energy = self.getApproximateCalories()
+				}
+			}
+		} else {
+			failedToGetReport?("Data for report not found or missing")
+		}
+	}
+}
+
+extension FoodReportViewModel: Endpoint {
+	
+	var base: String {
+		return "https://api.nal.usda.gov"
+	}
+	
+	var path: String {
+		return "/ndb/V2/reports"
+	}
+	
+	var apiKey: String {
+		return "W2ceA0Nn2t5Sy6nDsGVSc15SaarVCkEyqpihsLRU"
+	}
+	
+	func getQueryItems(appending items: [URLQueryItem]?) -> [URLQueryItem] {
+		var queryItems = [URLQueryItem(name: "type", value: "b"),
+						  URLQueryItem(name: "format", value: "json"),
+						  URLQueryItem(name: "api_key", value: apiKey)]
+		if let items = items {		
+			queryItems.append(contentsOf: items)
+		}
+		return queryItems
+	}
+	
+	func getReport(for foodItem: String?, completion: @escaping (([NutrientsViewModel]) -> Void)) {
+		guard let foodItem = foodItem else { return }
+		foodReportClient.getReport(from: self, for: foodItem) { (result) in
+			switch result {
+			case .success(let reportResult):
+				guard let itemReport = reportResult else { return }
+				let report = itemReport.foods[0].food.nutrients.map { return  NutrientsViewModel(nutrients: $0) }
+				completion(report)
+			case .failure(let error):
+				print("the error \(error)")
+			}
+		}
+	}
+	
 }

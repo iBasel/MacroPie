@@ -12,7 +12,7 @@ protocol Endpoint {
 	var base: String { get }
 	var path: String { get }
 	var apiKey: String { get }
-	func getQueryItems(appending items: [URLQueryItem]) -> [URLQueryItem]
+	func getQueryItems(appending items: [URLQueryItem]?) -> [URLQueryItem]
 }
 
 extension Endpoint {
@@ -20,10 +20,7 @@ extension Endpoint {
 	func urlComponents(appending sequence: [URLQueryItem]?) -> URLComponents {
 		var components = URLComponents(string: base)!
 		components.path = path
-		
-		if let sequence = sequence {
-			components.queryItems?.append(contentsOf: sequence)
-		}
+		components.queryItems = getQueryItems(appending: sequence)
 		
 		return components
 	}	

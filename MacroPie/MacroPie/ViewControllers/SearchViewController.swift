@@ -18,7 +18,6 @@ class SearchViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		tableView.register(UITableViewCell.self, forCellReuseIdentifier: "FoodItemCell")
 		
 		searchController.searchResultsUpdater = self
 		searchController.obscuresBackgroundDuringPresentation = false

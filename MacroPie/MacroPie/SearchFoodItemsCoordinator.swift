@@ -25,7 +25,7 @@ class SearchFoodItemsCoordinator: Coordinator {
 	}
 	
 	func showSearchFoodItems() {
-		guard let searchViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else { return }
+		guard let searchViewController = UIStoryboard.init(name: "Search", bundle: Bundle.main).instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else { return }
 		self.navigationViewController.pushViewController(searchViewController, animated: true)
 		
 		searchViewController.didSelectFoodItem = { foodItem in
@@ -37,5 +37,9 @@ class SearchFoodItemsCoordinator: Coordinator {
 		let feedReportViewController = FeedReportViewController()
 		feedReportViewController.foodItem = foodItem
 		self.navigationViewController.pushViewController(feedReportViewController, animated: true)
+		
+		feedReportViewController.didFinishReport = {
+			self.navigationViewController.popViewController(animated: true)
+		}
 	}
 }

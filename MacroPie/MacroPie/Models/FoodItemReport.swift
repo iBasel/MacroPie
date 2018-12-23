@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum NutrientIds: String {
+public enum NutrientIds: String, CaseIterable {
 	case protein = "203"
 	case fat = "204"
 	case carbs = "205"
