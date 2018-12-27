@@ -1,5 +1,5 @@
 //
-//  FeedReportViewController.swift
+//  FoodReportViewController.swift
 //  MacroPie
 //
 //  Created by Basel Abdelaziz on 12/19/18.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Charts
 
-class FeedReportViewController: UIViewController {
+class FoodReportViewController: UIViewController {
 	
 	var foodItem: String?
 	var didFinishReport: (() -> Void)?
@@ -63,6 +63,6 @@ class FeedReportViewController: UIViewController {
 	}
 }
 
-extension FeedReportViewController: ChartViewDelegate {
+extension FoodReportViewController: ChartViewDelegate {
 	
 }

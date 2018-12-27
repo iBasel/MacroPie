@@ -107,9 +107,9 @@ class FoodReportViewModel {
 		}
 	}
 	
-	private func getApproximateCalories() -> String{
+	func getApproximateCalories(nutrients: [NutrientsViewModel]) -> String{
 		var total = 0.0
-		self.nutrients?.forEach { nutrient in
+		nutrients.forEach { nutrient in
 			switch nutrient.nutrientId {
 			case NutrientIds.protein.rawValue:
 				total += (Double(nutrient.value) ?? 0.0) * 4.0
@@ -135,7 +135,7 @@ class FoodReportViewModel {
 				if let energy = energy {
 					self.energy = energy.value
 				} else {
-					self.energy = self.getApproximateCalories()
+					self.energy = self.getApproximateCalories(nutrients: self.nutrients!) //this can be force unwrapped becuase the value will be 0.0
 				}
 			}
 		} else {

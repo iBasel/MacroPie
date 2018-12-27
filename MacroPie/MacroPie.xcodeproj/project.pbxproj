@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F0F2A674DF21F83E0762896E /* libPods-MacroPie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C64486A4CA3D515422889FA /* libPods-MacroPie.a */; };
+		02B4B19AA174E3B3F146FEAF /* Pods_MacroPie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C5CE270DC0A9618CBB89AC /* Pods_MacroPie.framework */; };
 		FB8C0B1321C93CDA006A2210 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1221C93CDA006A2210 /* SearchListViewModel.swift */; };
 		FB8C0B1621C9DAE4006A2210 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1521C9DAE4006A2210 /* Result.swift */; };
 		FB8C0B1821C9DAF8006A2210 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1721C9DAF8006A2210 /* Endpoint.swift */; };
@@ -17,29 +17,31 @@
 		FB8C0B2021CAA05E006A2210 /* FoodReportClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1F21CAA05E006A2210 /* FoodReportClient.swift */; };
 		FB8C0B2221CAA147006A2210 /* FoodItemReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B2121CAA147006A2210 /* FoodItemReportViewModel.swift */; };
 		FB8C0B2421CAA9D5006A2210 /* FoodItemReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B2321CAA9D5006A2210 /* FoodItemReport.swift */; };
-		FB8C0B2621CABC16006A2210 /* FeedReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B2521CABC16006A2210 /* FeedReportViewController.swift */; };
+		FB8C0B2621CABC16006A2210 /* FoodReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B2521CABC16006A2210 /* FoodReportViewController.swift */; };
+		FB9AC65121D53B600082B9AB /* SearchFoodItemsCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9AC65021D53B600082B9AB /* SearchFoodItemsCoordinatorTests.swift */; };
+		FB9AC65421D557BB0082B9AB /* SearchListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9AC65321D557BB0082B9AB /* SearchListViewModelTests.swift */; };
 		FBC3CBB221C878AC00266D7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBB121C878AC00266D7B /* AppDelegate.swift */; };
 		FBC3CBB421C878AC00266D7B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBB321C878AC00266D7B /* SearchViewController.swift */; };
 		FBC3CBB721C878AC00266D7B /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC3CBB521C878AC00266D7B /* Search.storyboard */; };
 		FBC3CBBA21C878AC00266D7B /* MacroPie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBB821C878AC00266D7B /* MacroPie.xcdatamodeld */; };
 		FBC3CBBC21C878AD00266D7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBC3CBBB21C878AD00266D7B /* Assets.xcassets */; };
 		FBC3CBBF21C878AD00266D7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC3CBBD21C878AD00266D7B /* LaunchScreen.storyboard */; };
-		FBC3CBCA21C878AD00266D7B /* MacroPieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBC921C878AD00266D7B /* MacroPieTests.swift */; };
 		FBC3CBD521C878AE00266D7B /* MacroPieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBD421C878AE00266D7B /* MacroPieUITests.swift */; };
 		FBC3CBE421C878E900266D7B /* FoodItemsSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBE321C878E900266D7B /* FoodItemsSearchResult.swift */; };
 		FBC3CBE621C87CDF00266D7B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBE521C87CDF00266D7B /* Coordinator.swift */; };
 		FBC3CBE821C87CE600266D7B /* SearchFoodItemsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBE721C87CE600266D7B /* SearchFoodItemsCoordinator.swift */; };
+		FBF7BF1921D05429002BFA66 /* FoodReportViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF7BF1821D05429002BFA66 /* FoodReportViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FBC3CBC621C878AD00266D7B /* PBXContainerItemProxy */ = {
+		FBC3CBD121C878AE00266D7B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FBC3CBA621C878AB00266D7B /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = FBC3CBAD21C878AB00266D7B;
 			remoteInfo = MacroPie;
 		};
-		FBC3CBD121C878AE00266D7B /* PBXContainerItemProxy */ = {
+		FBF7BF1B21D05429002BFA66 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FBC3CBA621C878AB00266D7B /* Project object */;
 			proxyType = 1;
@@ -49,8 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26C5CE270DC0A9618CBB89AC /* Pods_MacroPie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacroPie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		316BB66C2F15BB5C2C1BF087 /* Pods-MacroPie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacroPie.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacroPie/Pods-MacroPie.release.xcconfig"; sourceTree = "<group>"; };
-		5C64486A4CA3D515422889FA /* libPods-MacroPie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MacroPie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0C749ABC65C2AF57041393 /* Pods-MacroPie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacroPie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MacroPie/Pods-MacroPie.debug.xcconfig"; sourceTree = "<group>"; };
 		FB8C0B1221C93CDA006A2210 /* SearchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
 		FB8C0B1521C9DAE4006A2210 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -61,7 +63,9 @@
 		FB8C0B1F21CAA05E006A2210 /* FoodReportClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodReportClient.swift; sourceTree = "<group>"; };
 		FB8C0B2121CAA147006A2210 /* FoodItemReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemReportViewModel.swift; sourceTree = "<group>"; };
 		FB8C0B2321CAA9D5006A2210 /* FoodItemReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemReport.swift; sourceTree = "<group>"; };
-		FB8C0B2521CABC16006A2210 /* FeedReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedReportViewController.swift; sourceTree = "<group>"; };
+		FB8C0B2521CABC16006A2210 /* FoodReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodReportViewController.swift; sourceTree = "<group>"; };
+		FB9AC65021D53B600082B9AB /* SearchFoodItemsCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodItemsCoordinatorTests.swift; sourceTree = "<group>"; };
+		FB9AC65321D557BB0082B9AB /* SearchListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModelTests.swift; sourceTree = "<group>"; };
 		FBC3CBAE21C878AB00266D7B /* MacroPie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroPie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC3CBB121C878AC00266D7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBC3CBB321C878AC00266D7B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -70,15 +74,15 @@
 		FBC3CBBB21C878AD00266D7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBC3CBBE21C878AD00266D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBC3CBC021C878AD00266D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBC3CBC521C878AD00266D7B /* MacroPieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacroPieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBC3CBC921C878AD00266D7B /* MacroPieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroPieTests.swift; sourceTree = "<group>"; };
-		FBC3CBCB21C878AD00266D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBC3CBD021C878AE00266D7B /* MacroPieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacroPieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC3CBD421C878AE00266D7B /* MacroPieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroPieUITests.swift; sourceTree = "<group>"; };
 		FBC3CBD621C878AE00266D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBC3CBE321C878E900266D7B /* FoodItemsSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsSearchResult.swift; sourceTree = "<group>"; };
 		FBC3CBE521C87CDF00266D7B /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		FBC3CBE721C87CE600266D7B /* SearchFoodItemsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFoodItemsCoordinator.swift; sourceTree = "<group>"; };
+		FBF7BF1621D05428002BFA66 /* MacroPieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacroPieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBF7BF1821D05429002BFA66 /* FoodReportViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodReportViewModelTests.swift; sourceTree = "<group>"; };
+		FBF7BF1A21D05429002BFA66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,18 +90,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0F2A674DF21F83E0762896E /* libPods-MacroPie.a in Frameworks */,
+				02B4B19AA174E3B3F146FEAF /* Pods_MacroPie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FBC3CBC221C878AD00266D7B /* Frameworks */ = {
+		FBC3CBCD21C878AE00266D7B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FBC3CBCD21C878AE00266D7B /* Frameworks */ = {
+		FBF7BF1321D05428002BFA66 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -119,7 +123,7 @@
 		5898527C015433ACFE24DCCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5C64486A4CA3D515422889FA /* libPods-MacroPie.a */,
+				26C5CE270DC0A9618CBB89AC /* Pods_MacroPie.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,7 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				FBC3CBB021C878AC00266D7B /* MacroPie */,
-				FBC3CBC821C878AD00266D7B /* MacroPieTests */,
+				FBF7BF1721D05429002BFA66 /* MacroPieTests */,
 				FBC3CBD321C878AE00266D7B /* MacroPieUITests */,
 				FBC3CBAF21C878AB00266D7B /* Products */,
 				27E19B2FC8A73EF04A673273 /* Pods */,
@@ -153,8 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				FBC3CBAE21C878AB00266D7B /* MacroPie.app */,
-				FBC3CBC521C878AD00266D7B /* MacroPieTests.xctest */,
 				FBC3CBD021C878AE00266D7B /* MacroPieUITests.xctest */,
+				FBF7BF1621D05428002BFA66 /* MacroPieTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,15 +180,6 @@
 				FBC3CBB821C878AC00266D7B /* MacroPie.xcdatamodeld */,
 			);
 			path = MacroPie;
-			sourceTree = "<group>";
-		};
-		FBC3CBC821C878AD00266D7B /* MacroPieTests */ = {
-			isa = PBXGroup;
-			children = (
-				FBC3CBC921C878AD00266D7B /* MacroPieTests.swift */,
-				FBC3CBCB21C878AD00266D7B /* Info.plist */,
-			);
-			path = MacroPieTests;
 			sourceTree = "<group>";
 		};
 		FBC3CBD321C878AE00266D7B /* MacroPieUITests */ = {
@@ -209,7 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				FBC3CBB321C878AC00266D7B /* SearchViewController.swift */,
-				FB8C0B2521CABC16006A2210 /* FeedReportViewController.swift */,
+				FB8C0B2521CABC16006A2210 /* FoodReportViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -231,6 +226,17 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		FBF7BF1721D05429002BFA66 /* MacroPieTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB9AC65021D53B600082B9AB /* SearchFoodItemsCoordinatorTests.swift */,
+				FB9AC65321D557BB0082B9AB /* SearchListViewModelTests.swift */,
+				FBF7BF1821D05429002BFA66 /* FoodReportViewModelTests.swift */,
+				FBF7BF1A21D05429002BFA66 /* Info.plist */,
+			);
+			path = MacroPieTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -242,6 +248,7 @@
 				FBC3CBAA21C878AB00266D7B /* Sources */,
 				FBC3CBAB21C878AB00266D7B /* Frameworks */,
 				FBC3CBAC21C878AB00266D7B /* Resources */,
+				FD32D37CFC065C679894C8C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,24 +258,6 @@
 			productName = MacroPie;
 			productReference = FBC3CBAE21C878AB00266D7B /* MacroPie.app */;
 			productType = "com.apple.product-type.application";
-		};
-		FBC3CBC421C878AD00266D7B /* MacroPieTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FBC3CBDC21C878AE00266D7B /* Build configuration list for PBXNativeTarget "MacroPieTests" */;
-			buildPhases = (
-				FBC3CBC121C878AD00266D7B /* Sources */,
-				FBC3CBC221C878AD00266D7B /* Frameworks */,
-				FBC3CBC321C878AD00266D7B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FBC3CBC721C878AD00266D7B /* PBXTargetDependency */,
-			);
-			name = MacroPieTests;
-			productName = MacroPieTests;
-			productReference = FBC3CBC521C878AD00266D7B /* MacroPieTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		FBC3CBCF21C878AE00266D7B /* MacroPieUITests */ = {
 			isa = PBXNativeTarget;
@@ -288,6 +277,24 @@
 			productReference = FBC3CBD021C878AE00266D7B /* MacroPieUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		FBF7BF1521D05428002BFA66 /* MacroPieTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBF7BF1D21D05429002BFA66 /* Build configuration list for PBXNativeTarget "MacroPieTests" */;
+			buildPhases = (
+				FBF7BF1221D05428002BFA66 /* Sources */,
+				FBF7BF1321D05428002BFA66 /* Frameworks */,
+				FBF7BF1421D05428002BFA66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FBF7BF1C21D05429002BFA66 /* PBXTargetDependency */,
+			);
+			name = MacroPieTests;
+			productName = MacroPieTests;
+			productReference = FBF7BF1621D05428002BFA66 /* MacroPieTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -301,11 +308,11 @@
 					FBC3CBAD21C878AB00266D7B = {
 						CreatedOnToolsVersion = 10.1;
 					};
-					FBC3CBC421C878AD00266D7B = {
+					FBC3CBCF21C878AE00266D7B = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = FBC3CBAD21C878AB00266D7B;
 					};
-					FBC3CBCF21C878AE00266D7B = {
+					FBF7BF1521D05428002BFA66 = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = FBC3CBAD21C878AB00266D7B;
 					};
@@ -325,7 +332,7 @@
 			projectRoot = "";
 			targets = (
 				FBC3CBAD21C878AB00266D7B /* MacroPie */,
-				FBC3CBC421C878AD00266D7B /* MacroPieTests */,
+				FBF7BF1521D05428002BFA66 /* MacroPieTests */,
 				FBC3CBCF21C878AE00266D7B /* MacroPieUITests */,
 			);
 		};
@@ -342,14 +349,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FBC3CBC321C878AD00266D7B /* Resources */ = {
+		FBC3CBCE21C878AE00266D7B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FBC3CBCE21C878AE00266D7B /* Resources */ = {
+		FBF7BF1421D05428002BFA66 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -364,21 +371,35 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-MacroPie-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD32D37CFC065C679894C8C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MacroPie/Pods-MacroPie-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MacroPie/Pods-MacroPie-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -396,7 +417,7 @@
 				FB8C0B2221CAA147006A2210 /* FoodItemReportViewModel.swift in Sources */,
 				FB8C0B1A21C9DBCE006A2210 /* APIError.swift in Sources */,
 				FBC3CBB421C878AC00266D7B /* SearchViewController.swift in Sources */,
-				FB8C0B2621CABC16006A2210 /* FeedReportViewController.swift in Sources */,
+				FB8C0B2621CABC16006A2210 /* FoodReportViewController.swift in Sources */,
 				FB8C0B1C21C9DC2B006A2210 /* APIClient.swift in Sources */,
 				FB8C0B2421CAA9D5006A2210 /* FoodItemReport.swift in Sources */,
 				FBC3CBE421C878E900266D7B /* FoodItemsSearchResult.swift in Sources */,
@@ -404,14 +425,6 @@
 				FBC3CBB221C878AC00266D7B /* AppDelegate.swift in Sources */,
 				FB8C0B1621C9DAE4006A2210 /* Result.swift in Sources */,
 				FBC3CBBA21C878AC00266D7B /* MacroPie.xcdatamodeld in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBC3CBC121C878AD00266D7B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBC3CBCA21C878AD00266D7B /* MacroPieTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,18 +436,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FBF7BF1221D05428002BFA66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBF7BF1921D05429002BFA66 /* FoodReportViewModelTests.swift in Sources */,
+				FB9AC65121D53B600082B9AB /* SearchFoodItemsCoordinatorTests.swift in Sources */,
+				FB9AC65421D557BB0082B9AB /* SearchListViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FBC3CBC721C878AD00266D7B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FBC3CBAD21C878AB00266D7B /* MacroPie */;
-			targetProxy = FBC3CBC621C878AD00266D7B /* PBXContainerItemProxy */;
-		};
 		FBC3CBD221C878AE00266D7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FBC3CBAD21C878AB00266D7B /* MacroPie */;
 			targetProxy = FBC3CBD121C878AE00266D7B /* PBXContainerItemProxy */;
+		};
+		FBF7BF1C21D05429002BFA66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FBC3CBAD21C878AB00266D7B /* MacroPie */;
+			targetProxy = FBF7BF1B21D05429002BFA66 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -580,7 +603,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HG64NS3XL8;
+				DEVELOPMENT_TEAM = 7L3M3UQG6N;
 				INFOPLIST_FILE = MacroPie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -599,7 +622,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HG64NS3XL8;
+				DEVELOPMENT_TEAM = 7L3M3UQG6N;
 				INFOPLIST_FILE = MacroPie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -609,48 +632,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		FBC3CBDD21C878AE00266D7B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7L3M3UQG6N;
-				INFOPLIST_FILE = MacroPieTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baselaz.MacroPieTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacroPie.app/MacroPie";
-			};
-			name = Debug;
-		};
-		FBC3CBDE21C878AE00266D7B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7L3M3UQG6N;
-				INFOPLIST_FILE = MacroPieTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.baselaz.MacroPieTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacroPie.app/MacroPie";
 			};
 			name = Release;
 		};
@@ -694,6 +675,46 @@
 			};
 			name = Release;
 		};
+		FBF7BF1E21D05429002BFA66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7L3M3UQG6N;
+				INFOPLIST_FILE = MacroPieTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baselaz.MacroPieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacroPie.app/MacroPie";
+			};
+			name = Debug;
+		};
+		FBF7BF1F21D05429002BFA66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7L3M3UQG6N;
+				INFOPLIST_FILE = MacroPieTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baselaz.MacroPieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacroPie.app/MacroPie";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -715,20 +736,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FBC3CBDC21C878AE00266D7B /* Build configuration list for PBXNativeTarget "MacroPieTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FBC3CBDD21C878AE00266D7B /* Debug */,
-				FBC3CBDE21C878AE00266D7B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		FBC3CBDF21C878AE00266D7B /* Build configuration list for PBXNativeTarget "MacroPieUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FBC3CBE021C878AE00266D7B /* Debug */,
 				FBC3CBE121C878AE00266D7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBF7BF1D21D05429002BFA66 /* Build configuration list for PBXNativeTarget "MacroPieTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBF7BF1E21D05429002BFA66 /* Debug */,
+				FBF7BF1F21D05429002BFA66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

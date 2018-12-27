@@ -34,11 +34,11 @@ class SearchFoodItemsCoordinator: Coordinator {
 	}
 	
 	func showFoodReport(foodItem: String) {
-		let feedReportViewController = FeedReportViewController()
-		feedReportViewController.foodItem = foodItem
-		self.navigationViewController.pushViewController(feedReportViewController, animated: true)
+		let foodReportViewController = FoodReportViewController()
+		foodReportViewController.foodItem = foodItem
+		self.navigationViewController.pushViewController(foodReportViewController, animated: true)
 		
-		feedReportViewController.didFinishReport = {
+		foodReportViewController.didFinishReport = {
 			self.navigationViewController.popViewController(animated: true)
 		}
 	}

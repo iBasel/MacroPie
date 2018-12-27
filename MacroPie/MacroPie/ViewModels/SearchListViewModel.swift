@@ -93,7 +93,7 @@ extension SearchViewModel: Endpoint {
 	}
 	
 
-	func searchItems(for searchText: String, completion: @escaping (([FoodItemViewModel]) -> Void)) {
+	func searchItems(for searchText: String, completion: @escaping (([FoodItemViewModel]) -> Void)) {		
 		if searchText.count > 3 {
 			pendingRequestWorkItem?.cancel()
 			let requestWorkItem = DispatchWorkItem { [weak self] in
