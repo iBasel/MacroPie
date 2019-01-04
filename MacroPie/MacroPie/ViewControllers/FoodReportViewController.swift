@@ -17,6 +17,11 @@ class FoodReportViewController: UIViewController {
 	
 	let foodItemReportViewModel = FoodReportViewModel()
 	
+	lazy var chartView: PieChartView = {
+		let chartView = PieChartView()
+		return chartView
+	}()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.backgroundColor = .white
@@ -27,22 +32,34 @@ class FoodReportViewController: UIViewController {
 				return PieChartDataEntry(value: Double(nutrient.value) ?? 0, label: nutrient.name)
 			})
 			
-			let chartView = PieChartView(frame: CGRect(x: 0, y: 100, width: self?.view.frame.size.width ?? 400, height: 400))
-			
-			let set = PieChartDataSet(values: entries, label: labelText)
-			set.drawIconsEnabled = false
-			set.colors = [.red, .green, .blue]
-			
-			let data = PieChartData(dataSet: set)
-			chartView.data = data
-			
-			self?.view.addSubview(chartView)
+			if let chartView = self?.chartView {
+				self?.view.addSubview(chartView)
+				chartView.translatesAutoresizingMaskIntoConstraints = false
+				chartView.topAnchor.constraint(equalTo: (self?.view.topAnchor)!, constant: 100).isActive = true // it's self.view inside UIViewController so it's safe to force unwrape it
+				chartView.leadingAnchor.constraint(equalTo: (self?.view.leadingAnchor)!).isActive = true
+				chartView.trailingAnchor.constraint(equalTo: (self?.view.trailingAnchor)!).isActive = true
+				chartView.heightAnchor.constraint(greaterThanOrEqualToConstant: 400).isActive = true
+				
+				let set = PieChartDataSet(values: entries, label: labelText)
+				set.drawIconsEnabled = false
+				set.colors = [.red, .green, .blue]
+				
+				let data = PieChartData(dataSet: set)
+				self?.chartView.data = data
+			}
 		}
 		
 		foodItemReportViewModel.didGetEnergy = { [weak self] text in
-			let label = UILabel(frame: CGRect(x: 0, y: 500, width: 400, height: 100))
+			let label = UILabel()
 			label.text = text
+			label.textAlignment = .center
 			self?.view.addSubview(label)
+			
+			label.translatesAutoresizingMaskIntoConstraints = false
+			label.topAnchor.constraint(equalTo: self?.chartView.bottomAnchor ?? (self?.view.topAnchor)!, constant: 50).isActive = true
+			label.leadingAnchor.constraint(equalTo: (self?.view.leadingAnchor)!).isActive = true
+			label.trailingAnchor.constraint(equalTo: (self?.view.trailingAnchor)!).isActive = true
+			label.heightAnchor.constraint(greaterThanOrEqualToConstant: 80).isActive = true
 		}
 		
 		foodItemReportViewModel.failedToGetReport = { [weak self] error in
@@ -61,8 +78,4 @@ class FoodReportViewController: UIViewController {
 			foodItemReportViewModel.getReport(for: foodItem)
 		}
 	}
-}
-
-extension FoodReportViewController: ChartViewDelegate {
-	
 }
