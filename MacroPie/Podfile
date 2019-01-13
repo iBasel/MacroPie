@@ -5,4 +5,5 @@ target 'MacroPie' do
   use_frameworks!
   
   pod 'Charts'
+  pod 'RxSwift'
 end

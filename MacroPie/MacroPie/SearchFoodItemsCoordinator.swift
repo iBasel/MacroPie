@@ -21,7 +21,16 @@ class SearchFoodItemsCoordinator: Coordinator {
 	}
 	
 	func start() {
-		showSearchFoodItems()
+		showFoodJournal()
+	}
+	
+	func showFoodJournal() {
+		let foodJournalViewController = FoodJournalViewController()
+		self.navigationViewController.pushViewController(foodJournalViewController, animated: true)
+		
+		foodJournalViewController.addNewItem = {
+			self.showSearchFoodItems()
+		}
 	}
 	
 	func showSearchFoodItems() {
@@ -33,13 +42,18 @@ class SearchFoodItemsCoordinator: Coordinator {
 		}
 	}
 	
-	func showFoodReport(foodItem: String) {
+	func showFoodReport(foodItem: FoodItemViewModel) {
 		let foodReportViewController = FoodReportViewController()
 		foodReportViewController.foodItem = foodItem
 		self.navigationViewController.pushViewController(foodReportViewController, animated: true)
 		
 		foodReportViewController.didFinishReport = {
 			self.navigationViewController.popViewController(animated: true)
+		}
+		
+		foodReportViewController.didSaveItem = { foodItem in
+			// TODO: save food item
+			self.navigationViewController.popToRootViewController(animated: true)
 		}
 	}
 }

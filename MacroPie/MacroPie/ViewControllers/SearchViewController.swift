@@ -10,7 +10,7 @@ import UIKit
 
 class SearchViewController: UITableViewController {
 
-	var didSelectFoodItem: ((String) -> Void)?
+	var didSelectFoodItem: ((FoodItemViewModel) -> Void)?
 	
 	let searchController = UISearchController(searchResultsController: nil)
 	
@@ -57,8 +57,8 @@ class SearchViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		guard let item = self.searchViewModel.items?[indexPath.row], let itemDbNo = item.ndbno else { return }
-		didSelectFoodItem?(itemDbNo)
+		guard let item = self.searchViewModel.items?[indexPath.row] else { return }
+		didSelectFoodItem?(item)
 	}
 }
 

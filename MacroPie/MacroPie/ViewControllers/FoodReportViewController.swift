@@ -12,8 +12,9 @@ import Charts
 
 class FoodReportViewController: UIViewController {
 	
-	var foodItem: String?
+	var foodItem: FoodItemViewModel?
 	var didFinishReport: (() -> Void)?
+	var didSaveItem: ((FoodItemViewModel) -> Void)?
 	
 	let foodItemReportViewModel = FoodReportViewModel()
 	
@@ -25,6 +26,8 @@ class FoodReportViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.backgroundColor = .white
+		
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveItem))
 		
 		foodItemReportViewModel.didGetFoodReport = { [weak self] (nutrients, labelText) in
 			let entries = nutrients?.map({ nutrient -> PieChartDataEntry in
@@ -75,7 +78,16 @@ class FoodReportViewController: UIViewController {
 		assert(foodItem != nil, "Food Item not set")
 		
 		if let foodItem = foodItem {
-			foodItemReportViewModel.getReport(for: foodItem)
+			foodItemReportViewModel.getReport(for: foodItem.ndbno)
 		}
+	}
+	
+	@objc func saveItem() {
+		guard let foodItem = foodItem else {
+			didFinishReport?()
+			return
+		}
+		
+		didSaveItem?(foodItem)
 	}
 }

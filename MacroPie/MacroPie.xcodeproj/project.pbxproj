@@ -30,6 +30,7 @@
 		FBC3CBE421C878E900266D7B /* FoodItemsSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBE321C878E900266D7B /* FoodItemsSearchResult.swift */; };
 		FBC3CBE621C87CDF00266D7B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBE521C87CDF00266D7B /* Coordinator.swift */; };
 		FBC3CBE821C87CE600266D7B /* SearchFoodItemsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBE721C87CE600266D7B /* SearchFoodItemsCoordinator.swift */; };
+		FBE34FAA21EABA66006EF506 /* FoodJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE34FA921EABA66006EF506 /* FoodJournalViewController.swift */; };
 		FBF7BF1921D05429002BFA66 /* FoodReportViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF7BF1821D05429002BFA66 /* FoodReportViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		FBC3CBE321C878E900266D7B /* FoodItemsSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsSearchResult.swift; sourceTree = "<group>"; };
 		FBC3CBE521C87CDF00266D7B /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		FBC3CBE721C87CE600266D7B /* SearchFoodItemsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFoodItemsCoordinator.swift; sourceTree = "<group>"; };
+		FBE34FA921EABA66006EF506 /* FoodJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodJournalViewController.swift; sourceTree = "<group>"; };
 		FBF7BF1621D05428002BFA66 /* MacroPieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacroPieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF7BF1821D05429002BFA66 /* FoodReportViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodReportViewModelTests.swift; sourceTree = "<group>"; };
 		FBF7BF1A21D05429002BFA66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		FBC3CBE921C87E2500266D7B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FBE34FA921EABA66006EF506 /* FoodJournalViewController.swift */,
 				FBC3CBB321C878AC00266D7B /* SearchViewController.swift */,
 				FB8C0B2521CABC16006A2210 /* FoodReportViewController.swift */,
 			);
@@ -392,10 +395,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MacroPie/Pods-MacroPie-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -418,6 +423,7 @@
 				FB8C0B1A21C9DBCE006A2210 /* APIError.swift in Sources */,
 				FBC3CBB421C878AC00266D7B /* SearchViewController.swift in Sources */,
 				FB8C0B2621CABC16006A2210 /* FoodReportViewController.swift in Sources */,
+				FBE34FAA21EABA66006EF506 /* FoodJournalViewController.swift in Sources */,
 				FB8C0B1C21C9DC2B006A2210 /* APIClient.swift in Sources */,
 				FB8C0B2421CAA9D5006A2210 /* FoodItemReport.swift in Sources */,
 				FBC3CBE421C878E900266D7B /* FoodItemsSearchResult.swift in Sources */,
