@@ -9,12 +9,15 @@
 import Foundation
 import UIKit
 import CoreData
+import RxSwift
 
 class SearchFoodItemsCoordinator: Coordinator {
 	
 	var childCoordinators: [Coordinator] = []
 	
 	let navigationViewController: UINavigationController
+	
+	let foodItems = Variable<[FoodItemViewModel]>([])
 	
 	init(navigationViewController: UINavigationController) {
 		self.navigationViewController = navigationViewController
@@ -25,11 +28,16 @@ class SearchFoodItemsCoordinator: Coordinator {
 	}
 	
 	func showFoodJournal() {
-		let foodJournalViewController = FoodJournalViewController()
+		let foodJournalViewController = FoodJournalViewController()		
+		foodJournalViewController.foodItems = foodItems
 		self.navigationViewController.pushViewController(foodJournalViewController, animated: true)
 		
 		foodJournalViewController.addNewItem = {
 			self.showSearchFoodItems()
+		}
+		
+		foodJournalViewController.didSelectFoodItem = { foodItem in
+			self.showFoodReport(foodItem: foodItem)
 		}
 	}
 	
@@ -52,7 +60,7 @@ class SearchFoodItemsCoordinator: Coordinator {
 		}
 		
 		foodReportViewController.didSaveItem = { foodItem in
-			// TODO: save food item
+			self.foodItems.value.append(foodItem)
 			self.navigationViewController.popToRootViewController(animated: true)
 		}
 	}

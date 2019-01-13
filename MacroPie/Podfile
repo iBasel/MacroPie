@@ -6,4 +6,5 @@ target 'MacroPie' do
   
   pod 'Charts'
   pod 'RxSwift'
+  pod 'RxCocoa'
 end
