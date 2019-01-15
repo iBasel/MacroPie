@@ -12,13 +12,20 @@ import RxSwift
 import RxCocoa
 
 class FoodJournalViewController: UITableViewController {
+	
+	private var foodJournalViewModel: FoodJournalViewModel?
+	
 	var addNewItem: (() -> ())?
-	var foodItems: Variable<[FoodItemViewModel]> = Variable([])
 	let cellIdentifier = "SavedFoodItemCell"
 	
 	private let disposeBag = DisposeBag()
 	
 	var didSelectFoodItem: ((FoodItemViewModel) -> Void)?
+	
+	convenience init(foodItems: Variable<[FoodItemViewModel]>) {
+		self.init()
+		foodJournalViewModel = FoodJournalViewModel(foodItems: foodItems)
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -30,11 +37,29 @@ class FoodJournalViewController: UITableViewController {
 		self.tableView.delegate = nil
 		self.tableView.dataSource = nil
 
-		foodItems.asObservable()
+		foodJournalViewModel?.totalEnergy.asObservable()
+			.subscribe(onNext: { (totalEnergy) in
+				self.navigationItem.title = String(describing: "Total energy: \(totalEnergy)")
+			})
+			.disposed(by: disposeBag)
+		
+		bindTableView()	
+		bindDidSelectTableView()
+	}
+	
+	@objc func add() {
+		addNewItem?()
+	}
+	
+	func bindTableView() {
+		foodJournalViewModel?.foodItems.asObservable()
 			.bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: UITableViewCell.self)) { row, item, cell in
 				cell.textLabel?.text = item.name
-			}.disposed(by: disposeBag)
+			}
+			.disposed(by: disposeBag)
+	}
 	
+	func bindDidSelectTableView() {
 		tableView
 			.rx
 			.modelSelected(FoodItemViewModel.self)
@@ -42,23 +67,8 @@ class FoodJournalViewController: UITableViewController {
 				
 				self?.didSelectFoodItem?(foodItem)
 				
-			}).disposed(by: disposeBag)
+			})
+			.disposed(by: disposeBag)
 	}
-	
-	@objc func add() {
-		addNewItem?()
-	}
-}
 
-// table view delegte & datasource
-extension FoodJournalViewController {
-//	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//		return foodItems?.count ?? 0
-//	}
-//	
-//	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//		let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-//		cell.textLabel?.text = foodItems?[indexPath.row].name
-//		return cell
-//	}
 }

@@ -24,12 +24,13 @@ class SearchFoodItemsCoordinator: Coordinator {
 	}
 	
 	func start() {
+		// get food items from core data
+		
 		showFoodJournal()
 	}
 	
 	func showFoodJournal() {
-		let foodJournalViewController = FoodJournalViewController()		
-		foodJournalViewController.foodItems = foodItems
+		let foodJournalViewController = FoodJournalViewController(foodItems: foodItems)
 		self.navigationViewController.pushViewController(foodJournalViewController, animated: true)
 		
 		foodJournalViewController.addNewItem = {
@@ -60,7 +61,7 @@ class SearchFoodItemsCoordinator: Coordinator {
 		}
 		
 		foodReportViewController.didSaveItem = { foodItem in
-			self.foodItems.value.append(foodItem)
+			self.foodItems.value.append(foodItem)			
 			self.navigationViewController.popToRootViewController(animated: true)
 		}
 	}

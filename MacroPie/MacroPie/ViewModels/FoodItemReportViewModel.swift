@@ -102,7 +102,7 @@ class FoodReportViewModel {
 	private var energy: String? {
 		didSet {
 			if let energy = energy {
-				didGetEnergy?("Calories: \(energy)")
+				didGetEnergy?(energy)
 			}
 		}
 	}

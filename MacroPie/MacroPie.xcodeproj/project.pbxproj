@@ -31,6 +31,8 @@
 		FBC3CBE621C87CDF00266D7B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBE521C87CDF00266D7B /* Coordinator.swift */; };
 		FBC3CBE821C87CE600266D7B /* SearchFoodItemsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBE721C87CE600266D7B /* SearchFoodItemsCoordinator.swift */; };
 		FBE34FAA21EABA66006EF506 /* FoodJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE34FA921EABA66006EF506 /* FoodJournalViewController.swift */; };
+		FBE34FAC21EC0257006EF506 /* FoodJournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE34FAB21EC0257006EF506 /* FoodJournalViewModel.swift */; };
+		FBE34FAF21ED063D006EF506 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE34FAE21ED063D006EF506 /* HealthKit.framework */; };
 		FBF7BF1921D05429002BFA66 /* FoodReportViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF7BF1821D05429002BFA66 /* FoodReportViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,9 @@
 		FBC3CBE521C87CDF00266D7B /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		FBC3CBE721C87CE600266D7B /* SearchFoodItemsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFoodItemsCoordinator.swift; sourceTree = "<group>"; };
 		FBE34FA921EABA66006EF506 /* FoodJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodJournalViewController.swift; sourceTree = "<group>"; };
+		FBE34FAB21EC0257006EF506 /* FoodJournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodJournalViewModel.swift; sourceTree = "<group>"; };
+		FBE34FAD21ED063D006EF506 /* MacroPie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacroPie.entitlements; sourceTree = "<group>"; };
+		FBE34FAE21ED063D006EF506 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		FBF7BF1621D05428002BFA66 /* MacroPieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacroPieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF7BF1821D05429002BFA66 /* FoodReportViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodReportViewModelTests.swift; sourceTree = "<group>"; };
 		FBF7BF1A21D05429002BFA66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02B4B19AA174E3B3F146FEAF /* Pods_MacroPie.framework in Frameworks */,
+				FBE34FAF21ED063D006EF506 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +131,7 @@
 		5898527C015433ACFE24DCCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FBE34FAE21ED063D006EF506 /* HealthKit.framework */,
 				26C5CE270DC0A9618CBB89AC /* Pods_MacroPie.framework */,
 			);
 			name = Frameworks;
@@ -168,6 +175,7 @@
 		FBC3CBB021C878AC00266D7B /* MacroPie */ = {
 			isa = PBXGroup;
 			children = (
+				FBE34FAD21ED063D006EF506 /* MacroPie.entitlements */,
 				FBC3CBB121C878AC00266D7B /* AppDelegate.swift */,
 				FBC3CBE521C87CDF00266D7B /* Coordinator.swift */,
 				FBC3CBE721C87CE600266D7B /* SearchFoodItemsCoordinator.swift */,
@@ -223,6 +231,7 @@
 		FBC3CBEB21C8824000266D7B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FBE34FAB21EC0257006EF506 /* FoodJournalViewModel.swift */,
 				FB8C0B1221C93CDA006A2210 /* SearchListViewModel.swift */,
 				FB8C0B2121CAA147006A2210 /* FoodItemReportViewModel.swift */,
 			);
@@ -310,6 +319,11 @@
 				TargetAttributes = {
 					FBC3CBAD21C878AB00266D7B = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					FBC3CBCF21C878AE00266D7B = {
 						CreatedOnToolsVersion = 10.1;
@@ -426,6 +440,7 @@
 				FBC3CBB421C878AC00266D7B /* SearchViewController.swift in Sources */,
 				FB8C0B2621CABC16006A2210 /* FoodReportViewController.swift in Sources */,
 				FBE34FAA21EABA66006EF506 /* FoodJournalViewController.swift in Sources */,
+				FBE34FAC21EC0257006EF506 /* FoodJournalViewModel.swift in Sources */,
 				FB8C0B1C21C9DC2B006A2210 /* APIClient.swift in Sources */,
 				FB8C0B2421CAA9D5006A2210 /* FoodItemReport.swift in Sources */,
 				FBC3CBE421C878E900266D7B /* FoodItemsSearchResult.swift in Sources */,
@@ -610,6 +625,7 @@
 			baseConfigurationReference = EF0C749ABC65C2AF57041393 /* Pods-MacroPie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MacroPie/MacroPie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7L3M3UQG6N;
 				INFOPLIST_FILE = MacroPie/Info.plist;
@@ -629,6 +645,7 @@
 			baseConfigurationReference = 316BB66C2F15BB5C2C1BF087 /* Pods-MacroPie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MacroPie/MacroPie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7L3M3UQG6N;
 				INFOPLIST_FILE = MacroPie/Info.plist;

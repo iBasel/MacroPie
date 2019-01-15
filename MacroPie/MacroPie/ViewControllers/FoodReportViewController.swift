@@ -52,9 +52,13 @@ class FoodReportViewController: UIViewController {
 			}
 		}
 		
-		foodItemReportViewModel.didGetEnergy = { [weak self] text in
+		foodItemReportViewModel.didGetEnergy = { [weak self] energy in
+			
+			//add energy to the food item
+			self?.foodItem?.energy = Double(energy)
+			
 			let label = UILabel()
-			label.text = text
+			label.text = "Calories: \(energy)"
 			label.textAlignment = .center
 			self?.view.addSubview(label)
 			
