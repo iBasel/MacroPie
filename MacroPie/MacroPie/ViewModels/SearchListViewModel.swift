@@ -36,6 +36,7 @@ struct FoodItemViewModel {
 	let dataSource: String?
 	let manufacturer: String?
 	var energy: Double?
+	var inHealthApp: Bool = false
 	
 	init(foodItem: FoodItem) {
 		self.offset = foodItem.offset

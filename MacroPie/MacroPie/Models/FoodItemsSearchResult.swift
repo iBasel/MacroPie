@@ -53,4 +53,13 @@ struct FoodItem: Decodable {
 		case dataSource = "ds"
 		case manufacturer = "manu"
 	}
+	
+	init(name: String, ndbno: String) {
+		self.name = name
+		self.ndbno = ndbno
+		self.offset = 0
+		self.group = ""
+		self.dataSource = ""
+		self.manufacturer = ""		
+	}
 }

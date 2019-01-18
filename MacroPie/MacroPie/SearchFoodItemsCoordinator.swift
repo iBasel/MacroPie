@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import CoreData
 import RxSwift
 
 class SearchFoodItemsCoordinator: Coordinator {
@@ -24,8 +23,6 @@ class SearchFoodItemsCoordinator: Coordinator {
 	}
 	
 	func start() {
-		// get food items from core data
-		
 		showFoodJournal()
 	}
 	

@@ -20,20 +20,22 @@ class FoodJournalViewModel {
 	convenience init(foodItems: Variable<[FoodItemViewModel]>) {
 		self.init()
 		self.foodItems = foodItems
-		
-		self.foodItems.asObservable()
+
+		setupHealthStore()
+
+		self.foodItems.asObservable()			
 			.subscribe(onNext: { (foodItems) in
 				// save to core data and health store
-				for foodItem in foodItems {
-					if let name = foodItem.name, let energy = foodItem.energy {
-						self.addFoodItem(energy: energy, name: name)
+				foodItems.filter({ (foodItem) -> Bool in
+					return !foodItem.inHealthApp
+				}).forEach({ (foodItem) in
+					if let name = foodItem.name, let energy = foodItem.energy, let ndbno = foodItem.ndbno {
+						self.addFoodItem(energy: energy, name: name, ndbno: ndbno)
 						self.totalEnergy.value += energy
 					}
-				}
+				})
 			})
 			.disposed(by: disposeBag)
-		
-		setupHealthStore()
 	}
 	
 	func setupHealthStore() {
@@ -69,18 +71,23 @@ class FoodJournalViewModel {
 		
 		let sampleQuere = HKSampleQuery(sampleType: foodType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { (query, results, error) in
 			if error != nil {
-				print("An error occured fetching the user's tracked food. In your app, try to handle this gracefully. The error was: \(String(describing: error?.localizedDescription)).")
+				print("An error occured fetching the user's tracked food. The error was: \(String(describing: error?.localizedDescription)).")
 				return
 			}
 			
 			guard let results = results else {
-				print("An error occured fetching the user's tracked food. In your app, try to handle this gracefully. The error was: \(String(describing: error?.localizedDescription)).")
+				print("An error occured fetching the user's tracked food. The error was: \(String(describing: error?.localizedDescription)).")
 				return
 			}
 			
 			results.forEach({ (correlation) in
 				if let foodCorrelation = correlation as? HKCorrelation {
-					self.correlationToFoodItem(foodCorrelation: foodCorrelation)
+					self.correlationToFoodItem(foodCorrelation: foodCorrelation) { foodItemViewModel in
+						DispatchQueue.main.async {
+							self.foodItems.value.append(foodItemViewModel)
+							self.totalEnergy.value += foodItemViewModel.energy ?? 0
+						}
+					}
 				}
 			})
 		}
@@ -88,9 +95,8 @@ class FoodJournalViewModel {
 		healthStore.execute(sampleQuere)
 	}
 	
-	func correlationToFoodItem(foodCorrelation: HKCorrelation) {
-		let name = foodCorrelation.metadata?[HKMetadataKeyFoodType]
-		
+	func correlationToFoodItem(foodCorrelation: HKCorrelation, completion: (FoodItemViewModel) -> Void) {
+		guard let ndbno = foodCorrelation.metadata?[HKMetadataKeyExternalUUID] as? String, let name = foodCorrelation.metadata?[HKMetadataKeyFoodType] as? String else { return }
 		guard let energyConsumedType = HKQuantityType.quantityType(forIdentifier: .dietaryEnergyConsumed) else { return }
 		
 		let energyConsumedSamples = foodCorrelation.objects(for: energyConsumedType)
@@ -102,22 +108,23 @@ class FoodJournalViewModel {
 			
 			let energy = energyQuantityConsumed.doubleValue(for: HKUnit.kilocalorie())
 			
-			DispatchQueue.main.async {				
-				self.totalEnergy.value += energy
-			}
+			let foodItem = FoodItem(name: name, ndbno: ndbno)
+			var foodItemViewModel = FoodItemViewModel(foodItem: foodItem)
+			foodItemViewModel.energy = energy
+			foodItemViewModel.inHealthApp = true
 			
-			print("\(String(describing: name)): \(energy)")
+			completion(foodItemViewModel)
 		}
 	}
 	
-	func addFoodItem(energy: Double, name: String) {
-		guard let foodItemCorrelation = foodItemToCorrelation(energy: energy, name: name) else { return }
+	func addFoodItem(energy: Double, name: String, ndbno: String) {
+		guard let foodItemCorrelation = foodItemToCorrelation(energy: energy, name: name, ndbno: ndbno) else { return }
 		healthStore.save(foodItemCorrelation) { (success, error) in
 			print("saved item in health app successfully")
 		}
 	}
 	
-	func foodItemToCorrelation(energy: Double, name: String) -> HKCorrelation? {
+	func foodItemToCorrelation(energy: Double, name: String, ndbno: String) -> HKCorrelation? {
 		
 		guard let energyConsumedType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed) else { return nil }
 		guard let foodType = HKObjectType.correlationType(forIdentifier: .food) else { return nil }
@@ -128,7 +135,7 @@ class FoodJournalViewModel {
 		let energyConsumedSample = HKQuantitySample(type: energyConsumedType, quantity: energyQuantityConsumed, start: now, end: now)
 		let energyConsumedSamples = Set(arrayLiteral: energyConsumedSample)
 
-		let foodCorrelationMetadata = [HKMetadataKeyFoodType: name]
+		let foodCorrelationMetadata = [HKMetadataKeyFoodType: name, HKMetadataKeyExternalUUID: ndbno]
 		
 		let foodItemCorrelation = HKCorrelation(type: foodType, start: now, end: now, objects: energyConsumedSamples, metadata: foodCorrelationMetadata)
 		
