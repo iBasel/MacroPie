@@ -20,6 +20,7 @@ class SearchFoodItemsCoordinator: Coordinator {
 	
 	init(navigationViewController: UINavigationController) {
 		self.navigationViewController = navigationViewController
+		self.navigationViewController.navigationBar.prefersLargeTitles = true
 	}
 	
 	func start() {

@@ -38,9 +38,9 @@ class FoodReportViewController: UIViewController {
 			if let chartView = self?.chartView {
 				self?.view.addSubview(chartView)
 				chartView.translatesAutoresizingMaskIntoConstraints = false
-				chartView.topAnchor.constraint(equalTo: (self?.view.topAnchor)!, constant: 100).isActive = true // it's self.view inside UIViewController so it's safe to force unwrape it
-				chartView.leadingAnchor.constraint(equalTo: (self?.view.leadingAnchor)!).isActive = true
-				chartView.trailingAnchor.constraint(equalTo: (self?.view.trailingAnchor)!).isActive = true
+				chartView.topAnchor.constraint(equalTo: (self?.view.safeAreaLayoutGuide.topAnchor)!, constant: 20).isActive = true // it's self.view inside UIViewController so it's safe to force unwrape it
+				chartView.leadingAnchor.constraint(equalTo: (self?.view.safeAreaLayoutGuide.leadingAnchor)!).isActive = true
+				chartView.trailingAnchor.constraint(equalTo: (self?.view.safeAreaLayoutGuide.trailingAnchor)!).isActive = true
 				chartView.heightAnchor.constraint(greaterThanOrEqualToConstant: 400).isActive = true
 				
 				let set = PieChartDataSet(values: entries, label: labelText)
@@ -64,8 +64,8 @@ class FoodReportViewController: UIViewController {
 			
 			label.translatesAutoresizingMaskIntoConstraints = false
 			label.topAnchor.constraint(equalTo: self?.chartView.bottomAnchor ?? (self?.view.topAnchor)!, constant: 50).isActive = true
-			label.leadingAnchor.constraint(equalTo: (self?.view.leadingAnchor)!).isActive = true
-			label.trailingAnchor.constraint(equalTo: (self?.view.trailingAnchor)!).isActive = true
+			label.leadingAnchor.constraint(equalTo: (self?.view.safeAreaLayoutGuide.leadingAnchor)!).isActive = true
+			label.trailingAnchor.constraint(equalTo: (self?.view.safeAreaLayoutGuide.trailingAnchor)!).isActive = true
 			label.heightAnchor.constraint(greaterThanOrEqualToConstant: 80).isActive = true
 		}
 		

@@ -23,6 +23,9 @@ class SearchViewController: UITableViewController {
 		searchController.obscuresBackgroundDuringPresentation = false
 		searchController.searchBar.placeholder = "Search Food Items"
 		navigationItem.searchController = searchController
+		
+		navigationItem.title = "Search Food Database"
+		
 		definesPresentationContext = true
 		
 		searchViewModel.didUpdateItems = {

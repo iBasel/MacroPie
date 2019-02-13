@@ -39,7 +39,7 @@ class FoodJournalViewController: UITableViewController {
 
 		foodJournalViewModel?.totalEnergy.asObservable()
 			.subscribe(onNext: { (totalEnergy) in
-				self.navigationItem.title = String(describing: "Total energy: \(totalEnergy)")
+				self.navigationItem.title = String(describing: "Calories: \(Int(totalEnergy))")
 			})
 			.disposed(by: disposeBag)
 		
