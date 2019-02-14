@@ -15,7 +15,7 @@ class FoodJournalViewModel {
 	private let disposeBag = DisposeBag()
 
 	var foodItems: Variable<[FoodItemViewModel]> = Variable([])
-	var totalEnergy: Variable<Double> = Variable(0.0)
+	var totalEnergy: Variable<Int> = Variable(0)
 
 	convenience init(foodItems: Variable<[FoodItemViewModel]>) {
 		self.init()
@@ -106,10 +106,10 @@ class FoodJournalViewModel {
 			
 			let energyQuantityConsumed = energyConsumedSample.quantity
 			
-			let energy = energyQuantityConsumed.doubleValue(for: HKUnit.kilocalorie())
+			let energy = Int(energyQuantityConsumed.doubleValue(for: HKUnit.kilocalorie()))
 			
 			let foodItem = FoodItem(name: name, ndbno: ndbno)
-			var foodItemViewModel = FoodItemViewModel(foodItem: foodItem)
+			let foodItemViewModel = FoodItemViewModel(foodItem: foodItem)
 			foodItemViewModel.energy = energy
 			foodItemViewModel.inHealthApp = true
 			
@@ -117,19 +117,19 @@ class FoodJournalViewModel {
 		}
 	}
 	
-	func addFoodItem(energy: Double, name: String, ndbno: String) {
+	func addFoodItem(energy: Int, name: String, ndbno: String) {
 		guard let foodItemCorrelation = foodItemToCorrelation(energy: energy, name: name, ndbno: ndbno) else { return }
 		healthStore.save(foodItemCorrelation) { (success, error) in
 			print("saved item in health app successfully")
 		}
 	}
 	
-	func foodItemToCorrelation(energy: Double, name: String, ndbno: String) -> HKCorrelation? {
+	func foodItemToCorrelation(energy: Int, name: String, ndbno: String) -> HKCorrelation? {
 		
 		guard let energyConsumedType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed) else { return nil }
 		guard let foodType = HKObjectType.correlationType(forIdentifier: .food) else { return nil }
 
-		let energyQuantityConsumed = HKQuantity(unit: HKUnit.kilocalorie(), doubleValue: energy)
+		let energyQuantityConsumed = HKQuantity(unit: HKUnit.kilocalorie(), doubleValue: Double(energy))
 		let now = Date.init()
 		
 		let energyConsumedSample = HKQuantitySample(type: energyConsumedType, quantity: energyQuantityConsumed, start: now, end: now)

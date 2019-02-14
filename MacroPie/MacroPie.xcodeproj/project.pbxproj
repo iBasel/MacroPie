@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02B4B19AA174E3B3F146FEAF /* Pods_MacroPie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C5CE270DC0A9618CBB89AC /* Pods_MacroPie.framework */; };
+		FB639E432214AA4D00F6BF11 /* FoodItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB639E422214AA4D00F6BF11 /* FoodItemCell.swift */; };
 		FB8C0B1321C93CDA006A2210 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1221C93CDA006A2210 /* SearchListViewModel.swift */; };
 		FB8C0B1621C9DAE4006A2210 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1521C9DAE4006A2210 /* Result.swift */; };
 		FB8C0B1821C9DAF8006A2210 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B1721C9DAF8006A2210 /* Endpoint.swift */; };
@@ -20,6 +21,7 @@
 		FB8C0B2621CABC16006A2210 /* FoodReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8C0B2521CABC16006A2210 /* FoodReportViewController.swift */; };
 		FB9AC65121D53B600082B9AB /* SearchFoodItemsCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9AC65021D53B600082B9AB /* SearchFoodItemsCoordinatorTests.swift */; };
 		FB9AC65421D557BB0082B9AB /* SearchListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9AC65321D557BB0082B9AB /* SearchListViewModelTests.swift */; };
+		FBA7010B22151BBE00B076F6 /* FoodItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBA7010A22151BBE00B076F6 /* FoodItemCell.xib */; };
 		FBC3CBB221C878AC00266D7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBB121C878AC00266D7B /* AppDelegate.swift */; };
 		FBC3CBB421C878AC00266D7B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3CBB321C878AC00266D7B /* SearchViewController.swift */; };
 		FBC3CBB721C878AC00266D7B /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC3CBB521C878AC00266D7B /* Search.storyboard */; };
@@ -57,6 +59,7 @@
 		26C5CE270DC0A9618CBB89AC /* Pods_MacroPie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacroPie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		316BB66C2F15BB5C2C1BF087 /* Pods-MacroPie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacroPie.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacroPie/Pods-MacroPie.release.xcconfig"; sourceTree = "<group>"; };
 		EF0C749ABC65C2AF57041393 /* Pods-MacroPie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacroPie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MacroPie/Pods-MacroPie.debug.xcconfig"; sourceTree = "<group>"; };
+		FB639E422214AA4D00F6BF11 /* FoodItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemCell.swift; sourceTree = "<group>"; };
 		FB8C0B1221C93CDA006A2210 /* SearchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
 		FB8C0B1521C9DAE4006A2210 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FB8C0B1721C9DAF8006A2210 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 		FB8C0B2521CABC16006A2210 /* FoodReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodReportViewController.swift; sourceTree = "<group>"; };
 		FB9AC65021D53B600082B9AB /* SearchFoodItemsCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodItemsCoordinatorTests.swift; sourceTree = "<group>"; };
 		FB9AC65321D557BB0082B9AB /* SearchListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModelTests.swift; sourceTree = "<group>"; };
+		FBA7010A22151BBE00B076F6 /* FoodItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodItemCell.xib; sourceTree = "<group>"; };
 		FBC3CBAE21C878AB00266D7B /* MacroPie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroPie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC3CBB121C878AC00266D7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBC3CBB321C878AC00266D7B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				FBC3CBB521C878AC00266D7B /* Search.storyboard */,
+				FB639E422214AA4D00F6BF11 /* FoodItemCell.swift */,
+				FBA7010A22151BBE00B076F6 /* FoodItemCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBA7010B22151BBE00B076F6 /* FoodItemCell.xib in Resources */,
 				FBC3CBBF21C878AD00266D7B /* LaunchScreen.storyboard in Resources */,
 				FBC3CBBC21C878AD00266D7B /* Assets.xcassets in Resources */,
 				FBC3CBB721C878AC00266D7B /* Search.storyboard in Resources */,
@@ -441,6 +448,7 @@
 				FB8C0B2621CABC16006A2210 /* FoodReportViewController.swift in Sources */,
 				FBE34FAA21EABA66006EF506 /* FoodJournalViewController.swift in Sources */,
 				FBE34FAC21EC0257006EF506 /* FoodJournalViewModel.swift in Sources */,
+				FB639E432214AA4D00F6BF11 /* FoodItemCell.swift in Sources */,
 				FB8C0B1C21C9DC2B006A2210 /* APIClient.swift in Sources */,
 				FB8C0B2421CAA9D5006A2210 /* FoodItemReport.swift in Sources */,
 				FBC3CBE421C878E900266D7B /* FoodItemsSearchResult.swift in Sources */,

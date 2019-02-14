@@ -55,7 +55,7 @@ class FoodReportViewController: UIViewController {
 		foodItemReportViewModel.didGetEnergy = { [weak self] energy in
 			
 			//add energy to the food item
-			self?.foodItem?.energy = Double(energy)
+			self?.foodItem?.energy = Int(energy)
 			
 			let label = UILabel()
 			label.text = "Calories: \(energy)"

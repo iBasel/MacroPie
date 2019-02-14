@@ -85,10 +85,6 @@ class FoodReportViewModel {
 	
 	private var nutrients: [NutrientsViewModel]? {
 		didSet {
-			nutrients?.forEach({ (nutrient) in
-				print(nutrient.name, nutrient.value, nutrient.measures.first!)
-			})
-			
 			var label = ""
 			
 			if let measure = nutrients?.first?.measures.first {

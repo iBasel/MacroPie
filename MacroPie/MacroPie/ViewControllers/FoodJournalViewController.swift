@@ -30,13 +30,15 @@ class FoodJournalViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+		tableView.register(UINib(nibName: "FoodItemCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
 		
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(add))
 		
 		self.tableView.delegate = nil
 		self.tableView.dataSource = nil
-
+		
+		self.tableView.rx.setDelegate(self).disposed(by: disposeBag)
+		
 		foodJournalViewModel?.totalEnergy.asObservable()
 			.subscribe(onNext: { (totalEnergy) in
 				self.navigationItem.title = String(describing: "Calories: \(Int(totalEnergy))")
@@ -53,13 +55,21 @@ class FoodJournalViewController: UITableViewController {
 	
 	func bindTableView() {
 		foodJournalViewModel?.foodItems.asObservable()
-			.bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: UITableViewCell.self)) { row, item, cell in
-				cell.textLabel?.text = item.name
+			.bind(to: tableView.rx.items) { tableView, row, item in
+				let indexPath = IndexPath(row: row, section: 0)
+
+				let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? FoodItemCell
+
+				cell?.foodItemName.text = item.name
+				cell?.foodItemDescription.text = item.manufacturer
+				cell?.foodItemCalories.text = String(describing: item.energy ?? 0)
+				
+				return cell!
 			}
 			.disposed(by: disposeBag)
 	}
 	
-	func bindDidSelectTableView() {
+	func bindDidSelectTableView() {		
 		tableView
 			.rx
 			.modelSelected(FoodItemViewModel.self)
@@ -69,6 +79,10 @@ class FoodJournalViewController: UITableViewController {
 				
 			})
 			.disposed(by: disposeBag)
+	}
+	
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 100.0
 	}
 
 }

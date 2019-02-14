@@ -28,16 +28,16 @@ private struct SearchListViewModel {
 	}
 }
 
-struct FoodItemViewModel {
+class FoodItemViewModel {
 	let offset: Int?
 	let group: String?
 	let name: String?
 	let ndbno: String?
 	let dataSource: String?
 	let manufacturer: String?
-	var energy: Double?
+	var energy: Int?
 	var inHealthApp: Bool = false
-	
+
 	init(foodItem: FoodItem) {
 		self.offset = foodItem.offset
 		self.group = foodItem.group
@@ -64,6 +64,27 @@ class SearchViewModel {
 		if let text = text {
 			self.searchItems(for: text) { [weak self] items in
 				self?.items = items
+			}
+		}
+	}
+	
+	func getItemName(at index: Int) -> String {
+		return items?[index].name ?? ""
+	}
+	
+	func getItemDescription(at index: Int) -> String {
+		return items?[index].manufacturer ?? ""
+	}
+	
+	func getItemCalories(at index: Int, completion: @escaping (String) -> Void) {
+		
+		let foodReportViewModel = FoodReportViewModel()
+		foodReportViewModel.getReport(for: items?[index].ndbno)
+		
+		foodReportViewModel.didGetEnergy = { energy in
+			if let energy = Int(energy) {
+				self.items?[index].energy = energy
+				completion(String(describing: energy))
 			}
 		}
 	}

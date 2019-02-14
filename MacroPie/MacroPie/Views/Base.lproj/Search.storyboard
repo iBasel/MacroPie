@@ -18,13 +18,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodItemCell" id="smh-dL-SmX">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodItemCell" rowHeight="100" id="smh-dL-SmX" customClass="FoodItemCell" customModule="MacroPie" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="smh-dL-SmX" id="rBu-LC-3uw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uM-7y-jYz">
+                                            <rect key="frame" x="21" y="21" width="44" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---------" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1N-qO-DCZ">
+                                            <rect key="frame" x="21" y="54" width="69" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="_ _" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnc-Eb-c1B">
+                                            <rect key="frame" x="332" y="32" width="32" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="vnc-Eb-c1B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Y1N-qO-DCZ" secondAttribute="trailing" constant="10" id="4HH-Jd-Cwv"/>
+                                        <constraint firstItem="Y1N-qO-DCZ" firstAttribute="top" secondItem="9uM-7y-jYz" secondAttribute="bottom" constant="10" id="55t-uf-MzL"/>
+                                        <constraint firstItem="9uM-7y-jYz" firstAttribute="leading" secondItem="rBu-LC-3uw" secondAttribute="leadingMargin" constant="5" id="5xd-2r-nQa"/>
+                                        <constraint firstItem="Y1N-qO-DCZ" firstAttribute="leading" secondItem="9uM-7y-jYz" secondAttribute="leading" id="JmM-UQ-bT2"/>
+                                        <constraint firstItem="vnc-Eb-c1B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9uM-7y-jYz" secondAttribute="trailing" constant="10" id="cD6-Tk-Ip2"/>
+                                        <constraint firstItem="vnc-Eb-c1B" firstAttribute="centerY" secondItem="rBu-LC-3uw" secondAttribute="centerY" id="egw-oU-1U2"/>
+                                        <constraint firstItem="9uM-7y-jYz" firstAttribute="top" secondItem="rBu-LC-3uw" secondAttribute="topMargin" constant="10" id="gWa-Ha-VSr"/>
+                                        <constraint firstItem="vnc-Eb-c1B" firstAttribute="trailing" secondItem="rBu-LC-3uw" secondAttribute="trailingMargin" constant="5" id="iSL-6F-Dd1"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="foodItemCalories" destination="vnc-Eb-c1B" id="wat-vg-HaL"/>
+                                    <outlet property="foodItemDescription" destination="Y1N-qO-DCZ" id="Shu-d2-fcB"/>
+                                    <outlet property="foodItemName" destination="9uM-7y-jYz" id="Ctt-J9-zAq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -35,6 +70,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuw-Xk-Y9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-82.400000000000006" y="91.304347826086968"/>
         </scene>
     </scenes>
 </document>

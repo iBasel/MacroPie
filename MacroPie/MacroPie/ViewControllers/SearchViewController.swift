@@ -54,9 +54,19 @@ class SearchViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "FoodItemCell", for: indexPath)
-		cell.textLabel?.text = searchViewModel.items?[indexPath.row].name ?? ""
-		return cell
+		let cell = tableView.dequeueReusableCell(withIdentifier: "FoodItemCell", for: indexPath) as? FoodItemCell
+		
+		cell?.foodItemName?.text = searchViewModel.getItemName(at: indexPath.row)
+		cell?.foodItemDescription?.text = searchViewModel.getItemDescription(at: indexPath.row)
+		searchViewModel.getItemCalories(at: indexPath.row) { (calories) in
+			cell?.foodItemCalories?.text = calories
+		}
+		
+		return cell!
+	}
+	
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 100.0
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
