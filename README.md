@@ -4,6 +4,6 @@ MacroPie is an iPhone app that allows you to search an online database of food, 
 
 The app uses MVVM-C, which my preferred way of architecting apps these days.
 
-MVVM: https://www.objc.io/issues/13-architecture/mvvm/
-Coordinators: http://khanlou.com/2015/10/coordinators-redux/
-HealthKit: https://developer.apple.com/healthkit
+- MVVM: https://www.objc.io/issues/13-architecture/mvvm/
+- Coordinators: http://khanlou.com/2015/10/coordinators-redux/
+- HealthKit: https://developer.apple.com/healthkit
